@@ -7,6 +7,36 @@
     <title>To Do List</title>
 </head>
 <body>
-    Things To Do
+    <div class="container">
+        <div class="title" id="title">Things To Do  <button id="plus" class="plus"></button></div>
+
+        <div class="navBar">
+
+        </div>
+        <div class="tasks">
+
+        </div>
+    </div>
+ 
+    <div class="popUpContainer" id="modal">
+        <div class="popUp">
+            <h1>Thing</h1>
+            <form id ="myForm">
+                <label for = "title">Title:</label><br>
+                <input type="text" id="title" required placeholder="Work On TOP"> <br>
+                <label for = "description">Description:</label><br>
+                <input type="text" id="description" required placeholder="Finished the ToDo Project"> <br>
+                <label for = "Due By">Due By:</label><br>
+                <select id="Due"> 
+                    <option value="today">Today</option>
+                    <option value="This Week">This Week</option>
+                    <option value="This Month">This Month</option>
+                    <option value="Long Term">Long Term</option>
+                    <br>
+                <input type="Submit" value = "Submit">
+            </form>
+        </div>
+    </div>
 </body>
+<script src="dist/main.js"></script>
 </html>

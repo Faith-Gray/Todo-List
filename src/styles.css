@@ -1,4 +1,127 @@
-body {
-    color: white;
-    background-color: black;
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+* {
+    color: #142d4c;
+    background-color: #9fd3c7;
+    font-family: 'Patrick Hand', cursive;
+  
+}
+
+.container {
+    max-width: 80vw;
+    display: grid;
+    grid-template-areas: 
+    "top  top"
+    "left right";
+    grid-gap: 18px;
+    grid-template-columns: 25% auto;
+    align-self: center;
+    margin: auto;
+}
+
+.title {
+    font-size: 4rem;
+    grid-area: top;
+    text-align: center;
+}
+
+.navBar{
+    grid-area: left;
+    background-color: #ececec;
+    height: 75vh;
+    border-color: #142d4c;
+    border: 2px solid;
+}
+
+.tasks{
+    grid-area: right;
+    width: auto;
+    border-color: #142d4c;
+    border: 2px solid;
+}
+
+#plus {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    cursor: pointer;
+    border: 2px solid #142d4c;
+    top: 40px;
+    right: 10%;
+}
+
+#plus:after {
+    content: '';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    height: 4px;
+    width: 50%;
+    background: #142d4c;
+    top: 50%;
+    left: 50%;
+}
+  
+#plus:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #142d4c;
+    height: 50%;
+    width: 4px;
+}
+  
+#plus:hover:before,
+#plus:hover:after {
+    background: #fff;
+    transition: 0.3s;
+}
+  
+#plus:hover {
+    background-color: #142d4c;
+    transition: 0.3s;
+}
+/* 
+.first-color { 
+	background: #ececec; 
+}
+	
+.second-color { 
+	background: #9fd3c7; 
+}
+
+.third-color { 
+	background: #385170; 
+}
+
+.fourth-color { 
+	background: #142d4c;  */
+/* } */
+
+.popUpContainer {
+    width: 300px;
+    height: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 100ms ease-in-out;
+    background: white;
+    box-sizing: border-box;
+    padding-left: 20px;
+    border: 2px solid #142d4c;
+    background: white;
+    z-index: 10;
+}
+
+.popUpContainer.active {
+    transform: translate(-50%, -50%) scale(1);
+
+}
+
+.popUp {
+    position: fixed;
+    background: white;
+    z-index: 10;
 }
