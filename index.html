@@ -11,7 +11,11 @@
         <div class="title" id="title">Things To Do  <button id="plus" class="plus"></button></div>
 
         <div class="navBar">
-
+            <div class="all" id="all">All</div>
+            <div class="today" id="today">Today</div>
+            <div class="thisWeek" id="thisWeek">This Week</div>
+            <div class="thisMonth" id="thisMonth">This Month</div>
+            <div class="longTerm" id="longTerm">Long Term</div>
         </div>
         <div class="tasks">
 
@@ -23,20 +27,21 @@
             <h1>Thing</h1>
             <form id ="myForm">
                 <label for = "title">Title:</label><br>
-                <input type="text" id="title" required placeholder="Work On TOP"> <br>
+                <input type="text" id="titleForm" required placeholder="Work On TOP"> <br>
                 <label for = "description">Description:</label><br>
                 <input type="text" id="description" required placeholder="Finished the ToDo Project"> <br>
                 <label for = "Due By">Due By:</label><br>
-                <select id="Due"> 
+                <select id="due"> 
                     <option value="today">Today</option>
                     <option value="This Week">This Week</option>
                     <option value="This Month">This Month</option>
                     <option value="Long Term">Long Term</option>
                     <br>
-                <input type="Submit" value = "Submit">
+                <input type="submit" value = "Submit">
             </form>
         </div>
     </div>
+    <div class="overlay" id="overlay"></div>
 </body>
 <script src="dist/main.js"></script>
 </html>

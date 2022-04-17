@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 * {
     color: #142d4c;
-    background-color: #9fd3c7;
+    /* background-color: #9fd3c7; */
     font-family: 'Patrick Hand', cursive;
   
+}
+
+body {
+    background-color: #9fd3c7;
 }
 
 .container {
@@ -100,18 +104,18 @@
 /* } */
 
 .popUpContainer {
-    width: 300px;
-    height: 450px;
+    width: 330px;
+    height: 490px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     transition: 100ms ease-in-out;
-    background: white;
+    background: #ececec;
     box-sizing: border-box;
     padding-left: 20px;
     border: 2px solid #142d4c;
-    background: white;
+    background: #ececec;
     z-index: 10;
 }
 
@@ -122,6 +126,75 @@
 
 .popUp {
     position: fixed;
-    background: white;
+    background: #ececec;
     z-index: 10;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0%;
+    transition: 100ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(20, 45, 76, .3);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#myForm {
+    background-color: #ececec;
+    font-size: 2em;
+}
+
+input[type=text] {
+    border: 2px solid #9fd3c7;
+}
+
+input[type=text]:focus {
+    border: 3px solid #9fd3c7;  
+    outline: none;
+}
+
+input[type=text] {
+    width: 120%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 18px;  
+    text-align: center;
+
+}
+
+input[type=submit] {
+    width: 100%;
+    font-size: 18px;
+}
+
+.navBar {
+    padding: 4%;
+    /* font-size: 65px; */
+    font-size: min(max(35px, 4vw), 65px);
+}
+
+.navBar > div {
+    cursor: pointer;  
+}
+.navBar > div:hover {
+    cursor: pointer;  
+
+    -webkit-text-stroke: .8px #9fd3c7;
 }
