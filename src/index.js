@@ -8,6 +8,7 @@ const overlay = document.getElementById('overlay');
 // const thisWeek = document.getElementById('thisWeek');
 // const thisMonth = document.getElementById('thisMonth');
 // const longTerm = document.getElementById('longTerm');
+const taskContainer = document.getElementsByClassName('tasks');
 
 
 
@@ -44,15 +45,33 @@ function createTask() {
 
 function addTask() {
     allList.push(createTask);
-    console.log(allList);
+    console.log(allList[0]);
 
 }
+
+
 
 document.getElementById("myForm").addEventListener('submit', (e) => {
     e.preventDefault();
     createTask();
     addTask();
     closeForm();
-    // form.reset();
-   // taskPopup();
+    document.querySelector('#myForm').reset();
+
+    
 });
+
+function addTaskToPage() {
+    const taskOnPage = document.createElement('input');
+    taskOnPage('type', 'checkbox');
+    taskContainer.appendChild(taskOnPage);
+    //div design
+    
+
+
+
+}
+
+function loopArrayOnPage() {
+    allList.forEach(addTaskToPage);
+}
