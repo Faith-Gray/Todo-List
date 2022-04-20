@@ -23,7 +23,7 @@ function openForm() {
 function closeForm() {
     popUp.classList.remove('active');
     overlay.classList.remove('active');
-}
+};
 
 let allList = [];
 
@@ -36,18 +36,20 @@ function createTask() {
         this.title = title;
         this.description = description;
         this.due = due;
-    }
+        // this.info = function() {
+        //     return this.info + "<br>" + this.description;
+        // }
+    };
 
     let newTask = new Task(title, description, due);
     console.log(newTask);
-}
+};
 
 
 function addTask() {
     allList.push(createTask);
-    console.log(allList[0]);
-
-}
+    console.log(allList.length);
+};
 
 
 
@@ -57,21 +59,32 @@ document.getElementById("myForm").addEventListener('submit', (e) => {
     addTask();
     closeForm();
     document.querySelector('#myForm').reset();
-
+    addTaskToPage();
     
 });
 
+
 function addTaskToPage() {
-    const taskOnPage = document.createElement('input');
-    taskOnPage('type', 'checkbox');
-    taskContainer.appendChild(taskOnPage);
-    //div design
-    
+    // const taskOnPage = document.createElement('input');
+    // taskOnPage('type', 'checkbox');
+    // taskContainer.appendChild(taskOnPage);
+    // //div design
+    for (let i = 0; i < allList.length; i++) {
+        let taskOnPage = document.createElement('input');
+        taskOnPage.type = "checkbox";
+        taskOnPage.name = "checkbox";
+        taskOnPage.id = "completed";
+        taskContainer.appendChild(taskOnPage);
+        //div design
+        taskContainer.style.color = 'white';
+        
+        // taskOnPage.textContent = allList[i].info;
+    };
 
 
 
-}
+};
 
-function loopArrayOnPage() {
-    allList.forEach(addTaskToPage);
-}
+// function loopArrayOnPage() {
+//     allList.forEach(addTaskToPage);
+// }
