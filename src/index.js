@@ -8,7 +8,7 @@ const overlay = document.getElementById('overlay');
 // const thisWeek = document.getElementById('thisWeek');
 // const thisMonth = document.getElementById('thisMonth');
 // const longTerm = document.getElementById('longTerm');
-const taskContainer = document.getElementsByClassName('tasks');
+const taskContainer = document.getElementById('tasks');
 
 
 
@@ -70,19 +70,21 @@ function addTaskToPage() {
     // taskContainer.appendChild(taskOnPage);
     // //div design
     for (let i = 0; i < allList.length; i++) {
-        let taskOnPage = document.createElement('input');
-        taskOnPage.type = "checkbox";
-        taskOnPage.name = "checkbox";
-        taskOnPage.id = "completed";
-        taskContainer.appendChild(taskOnPage);
-        //div design
-        taskContainer.style.color = 'white';
-        
-        // taskOnPage.textContent = allList[i].info;
+        let checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.name = 'checkbox';
+        checkbox.value = 'value';
+        checkbox.id = 'id';
+
+        let label = document.createElement('label');
+        label.htmlFor = 'id';
+        label.appendChild(document.createTextNode('test input'));
+
+
+        taskContainer.appendChild(checkbox);
+        taskContainer.appendChild(label);
+
     };
-
-
-
 };
 
 // function loopArrayOnPage() {
