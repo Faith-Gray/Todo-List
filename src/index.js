@@ -36,27 +36,31 @@ function createTask() {
         this.title = title;
         this.description = description;
         this.due = due;
-        // this.info = function() {
-        //     return this.info + "<br>" + this.description;
-        // }
+        this.info = function() {
+            return this.info + "<br>" + this.description;
+        }
     };
 
     let newTask = new Task(title, description, due);
     console.log(newTask);
+    return newTask;
 };
 
 
-function addTask() {
-    allList.push(createTask);
+function addTask(newTask) {
+    allList.push(newTask);
     console.log(allList.length);
+    console.log(allList);
+    return allList;
 };
 
 
 
 document.getElementById("myForm").addEventListener('submit', (e) => {
     e.preventDefault();
-    createTask();
-    addTask();
+    const submittedTask = createTask();
+    // createTask();
+    addTask(submittedTask);
     closeForm();
     document.querySelector('#myForm').reset();
     addTaskToPage();
@@ -65,24 +69,39 @@ document.getElementById("myForm").addEventListener('submit', (e) => {
 
 
 function addTaskToPage() {
-    // const taskOnPage = document.createElement('input');
-    // taskOnPage('type', 'checkbox');
-    // taskContainer.appendChild(taskOnPage);
-    // //div design
+    taskContainer.textContent = '';
+
     for (let i = 0; i < allList.length; i++) {
+        //make function to creat checkbox
+        //make function to add design to the div
         let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.name = 'checkbox';
         checkbox.value = 'value';
         checkbox.id = 'id';
+        
+       //make function to add design to the div
+        checkbox.style.fontSize = '20px';
 
+        let individualTask = document.createElement('div');
+        individualTask.style.paddingTop = '1%';
+        individualTask.style.paddingBottom = '1%';
+        individualTask.style.borderBottom = '1px solid #142d4c';
+        
         let label = document.createElement('label');
         label.htmlFor = 'id';
-        label.appendChild(document.createTextNode('test input'));
+
+        let placeHolderArray = [allList[i]];
+
+        let arrObject = placeHolderArray.map(a => a.title);
 
 
-        taskContainer.appendChild(checkbox);
-        taskContainer.appendChild(label);
+        label.appendChild(document.createTextNode(arrObject));
+        
+
+        taskContainer.appendChild(individualTask);
+        individualTask.appendChild(checkbox);
+        individualTask.appendChild(label);
 
     };
 };

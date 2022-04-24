@@ -198,3 +198,7 @@ input[type=submit] {
 
     -webkit-text-stroke: .8px #9fd3c7;
 }
+
+#tasks {
+    font-size: 22px;
+}
