@@ -95,9 +95,18 @@ function addTaskToPage() {
 
         let arrObject = placeHolderArray.map(a => a.title);
 
-
         label.appendChild(document.createTextNode(arrObject));
         
+        let divplaceholder = document.createElement('div');
+        divplaceholder.style.width = '100px';
+        divplaceholder.style.height = '10px';
+        divplaceholder.style.backgroundColor = 'red';
+        divplaceholder.style.color = 'red';
+        divplaceholder.style.zIndex = '10';
+        divplaceholder.style.display = 'inline-block';
+        individualTask.appendChild(divplaceholder);
+        individualTask.appendChild('<i class="fa-regular fa-pen-to-square">');
+
 
         taskContainer.appendChild(individualTask);
         individualTask.appendChild(checkbox);
@@ -105,6 +114,12 @@ function addTaskToPage() {
 
     };
 };
+
+// function createEditButton() {
+//     let divplaceholder = document.createElement('div');
+//     divplaceholder.style.width = '10px';
+//     divplaceholder.style.height = '10px';
+// };
 
 // function loopArrayOnPage() {
 //     allList.forEach(addTaskToPage);
