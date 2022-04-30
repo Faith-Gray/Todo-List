@@ -97,20 +97,23 @@ function addTaskToPage() {
 
         label.appendChild(document.createTextNode(arrObject));
         
-        let divplaceholder = document.createElement('div');
-        divplaceholder.style.width = '100px';
-        divplaceholder.style.height = '10px';
-        divplaceholder.style.backgroundColor = 'red';
-        divplaceholder.style.color = 'red';
-        divplaceholder.style.zIndex = '10';
-        divplaceholder.style.display = 'inline-block';
-        individualTask.appendChild(divplaceholder);
-        individualTask.appendChild('<i class="fa-regular fa-pen-to-square">');
+        let editIcon = document.createElement('div');
+        editIcon.classList.add('edit');
+        editIcon.style.display = 'inline-block';
+
+        let deleteIcon = document.createElement('div');
+        deleteIcon.classList.add('delete');
+        deleteIcon.style.display = 'inline-block';
 
 
-        taskContainer.appendChild(individualTask);
+
         individualTask.appendChild(checkbox);
+        taskContainer.appendChild(individualTask);
         individualTask.appendChild(label);
+        individualTask.appendChild(editIcon);
+
+        individualTask.appendChild(deleteIcon);
+
 
     };
 };
