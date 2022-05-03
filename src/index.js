@@ -36,9 +36,7 @@ function createTask() {
         this.title = title;
         this.description = description;
         this.due = due;
-        this.info = function() {
-            return this.info + "<br>" + this.description;
-        }
+        this.id = Date.now();
     };
 
     let newTask = new Task(title, description, due);
@@ -78,7 +76,7 @@ function addTaskToPage() {
         checkbox.type = 'checkbox';
         checkbox.name = 'checkbox';
         checkbox.value = 'value';
-        checkbox.id = 'id';
+        checkbox.id = 'cbid';
         
        //make function to add design to the div
         checkbox.style.fontSize = '20px';
@@ -87,16 +85,15 @@ function addTaskToPage() {
         individualTask.style.paddingTop = '1%';
         individualTask.style.paddingBottom = '1%';
         individualTask.style.borderBottom = '1px solid #142d4c';
+
         
         let label = document.createElement('label');
-        label.htmlFor = 'id';
-
+        label.htmlFor = 'cbid';
         let placeHolderArray = [allList[i]];
-
         let arrObject = placeHolderArray.map(a => a.title);
-
         label.appendChild(document.createTextNode(arrObject));
         
+
         let editIcon = document.createElement('div');
         editIcon.classList.add('edit');
         editIcon.style.display = 'inline-block';
@@ -104,6 +101,7 @@ function addTaskToPage() {
         let deleteIcon = document.createElement('div');
         deleteIcon.classList.add('delete');
         deleteIcon.style.display = 'inline-block';
+        deleteIcon.dataset.selectTask = placeHolderArray.map(b => b.id);
 
 
 
@@ -114,9 +112,22 @@ function addTaskToPage() {
 
         individualTask.appendChild(deleteIcon);
 
+        deleteIcon.addEventListener('click', (e) => {
+            console.log(deleteIcon.dataset.selectTask);
+
+
+            
+        });
 
     };
 };
+
+// delBtn.addEventListener(“click”, function(e) {const deleteId = e.target.getAttribute(“data-id”);myTodoList.deleteElement(deleteId);})
+
+// deleteIcon.addEventListener('click', (e) => {
+//     console.log(e.target.getAttribute('id'));
+// }
+
 
 // function createEditButton() {
 //     let divplaceholder = document.createElement('div');
