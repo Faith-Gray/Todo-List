@@ -65,39 +65,38 @@ document.getElementById("myForm").addEventListener('submit', (e) => {
     
 });
 
-
 function addTaskToPage() {
     taskContainer.textContent = '';
 
     for (let i = 0; i < allList.length; i++) {
-        //make function to creat checkbox
-        //make function to add design to the div
+        //create checkbox
         let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.name = 'checkbox';
         checkbox.value = 'value';
         checkbox.id = 'cbid';
-        
-       //make function to add design to the div
         checkbox.style.fontSize = '20px';
 
+      
+        //create div for task
         let individualTask = document.createElement('div');
         individualTask.style.paddingTop = '1%';
         individualTask.style.paddingBottom = '1%';
         individualTask.style.borderBottom = '1px solid #142d4c';
 
-        
+        //put task into div
         let label = document.createElement('label');
         label.htmlFor = 'cbid';
         let placeHolderArray = [allList[i]];
         let arrObject = placeHolderArray.map(a => a.title);
         label.appendChild(document.createTextNode(arrObject));
         
-
+        //create and add edit button
         let editIcon = document.createElement('div');
         editIcon.classList.add('edit');
         editIcon.style.display = 'inline-block';
 
+        //create and add delete button
         let deleteIcon = document.createElement('div');
         deleteIcon.classList.add('delete');
         deleteIcon.style.display = 'inline-block';
@@ -109,14 +108,14 @@ function addTaskToPage() {
         taskContainer.appendChild(individualTask);
         individualTask.appendChild(label);
         individualTask.appendChild(editIcon);
-
         individualTask.appendChild(deleteIcon);
 
+        //delete event listener - put into separate function?
         deleteIcon.addEventListener('click', (e) => {
             console.log(deleteIcon.dataset.selectTask);
-
-
             
+
+
         });
 
     };
