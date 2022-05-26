@@ -65,6 +65,13 @@ document.getElementById("myForm").addEventListener('submit', (e) => {
     
 });
 
+//I need to separate
+// delete function
+//edit function
+// pushing the task onto the page
+//sort by due date function
+//i'm going to move out all of the css from the js file... why did I do that anyways.
+
 function addTaskToPage() {
     taskContainer.textContent = '';
 
