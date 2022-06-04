@@ -48,8 +48,7 @@ function createTask() {
 function addTask(newTask) {
     allList.push(newTask);
     console.log(allList.length);
-    console.log(allList);
-    return allList;
+    // console.log(allList);
 };
 
 
@@ -64,6 +63,7 @@ document.getElementById("myForm").addEventListener('submit', (e) => {
     addTaskToPage();
     
 });
+
 
 //I need to separate
 // delete function
@@ -121,7 +121,10 @@ function addTaskToPage() {
         deleteIcon.addEventListener('click', (e) => {
             console.log(deleteIcon.dataset.selectTask);
             
-
+            let deletedItem = allList.findIndex((item)=> item.id == deleteIcon.dataset.selectTask);
+            console.log(deletedItem);
+            allList.splice(deletedItem,1);
+            console.log(allList);
 
         });
 
